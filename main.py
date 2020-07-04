@@ -145,49 +145,19 @@ def extractJobs(URL):
         print("Error 2: ", ex2)
         return
 
-
+# Place search terms in list below
 inputList = [
-    "senior project manager",
-    "sr project manager",
-    "project manager",
-    "senior technical",
-    "sr technical",
-    "technical engineer",
-    "senior solutions engineer",
-    "sr solutions engineer",
-    "solutions engineer"
-    "senior systems engineer",
-    "sr systems engineer",
-    "system engineer",
-    "senior solution architect",
-    "sr solution architect",
-    "solution architect",
-    "senior sales engineer",
-    "sr sales engineer",
-    "sales engineer",
-    "senior technical manager",
-    "sr technical manager",
-    "technical manager",
-    "senior technical specialist",
-    "sr technical specialist",
-    "technical specialist",
-    "senior technical sales",
-    "sr technical sales",
-    "technical sales",
-    "senior presales engineer",
-    "sr presales engineer",
-    "presales engineer",
-    "senior presales specialist",
-    "sr presales specialist",
-    "presales specialist"
+    "CEO",
 ]
-# filterTerms = "?fromAge=30&minRating=3.0"  # How old the job posting is, and the company rating. Limited to what glassdoor allows.
-filterTerms = "?minRating=4.0"
-ratingFilter = 4.0
-upperRatingFilter = 4.7
-NoOfPagesToSearch = 3
-reviewLimit = 20
 
+# filterTerms = "?fromAge=30&minRating=3.0"  # How old the job posting is, and the company rating. Limited to what glassdoor allows.
+filterTerms = "?minRating=4.0"  # Set to 3.0 if looking for companies below 4.0 rating.
+ratingFilter = 4.0   # Lower limit for company rating
+upperRatingFilter = 4.7  # Upper limit for company rating
+NoOfPagesToSearch = 3  # Number of pages to search in the results
+reviewLimit = 20  # Minimum number of reviews the company should have on Glassdoor.com to be considered.
+
+# Example variables to find all internships in Ontario (location is set in the getSearchURLs function directly)
 '''inputList = ["intern"]
 filterTerms = ""
 ratingFilter = 1
@@ -195,7 +165,7 @@ upperRatingFilter = 5
 NoOfPagesToSearch = 30
 reviewLimit = 0'''
 
-excludeList = []
+excludeList = [] # Excluse jobs with these terms
 timeNow = datetime.datetime.now()
 formattedTime = timeNow.strftime("%d") + "-" + timeNow.strftime("%b") + "-" + timeNow.strftime("%Y")
 fileName = 'jobs-' + formattedTime + '.csv'
